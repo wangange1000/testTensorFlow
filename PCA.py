@@ -24,9 +24,13 @@ def pca(dataMat, dimen):
     meanRemoved = dataMat - meanVals       #2
     covMat = cov(meanRemoved, rowvar=0)    #3
     Vals, Vects = linalg.eig(mat(covMat))  #4
+    print(Vals)
+    print(Vects)
     ValInt = argsort(Vals)                 #5
+    print(ValInt)
     ValInd = ValInt[:(-dimen+1):-1]        #6
     redEigVects = Vects[:,ValInd]          #7
+    print(redEigVects)
     lowDDataMat = meanRemoved * redEigVects  #8
     reconMat =(lowDDataMat * redEigVects.T) +meanVals  #9 
     return lowDDataMat,reconMat            #10
