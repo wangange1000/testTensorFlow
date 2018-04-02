@@ -44,9 +44,6 @@ def train(mnist):
     writer = tf.summary.FileWriter("/path/to/log", tf.get_default_graph())
     writer.close()
     
-def main(argv=None):
+if __name__=='__main__':
     mnist = input_data.read_data_sets("/path/to/mnist_data", one_hot=True)
     train(mnist)
-    
-if __name__=='__main__':
-    tf.app.run()
